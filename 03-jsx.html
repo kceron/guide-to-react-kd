@@ -2,9 +2,17 @@
   <div id="root"></div>
   <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <!-- here we add babel in the browser(which is NOT what we want to do in production), to compile jsx without installing other tools, this will compile any sript tag that has the tag type "text/babel" -->
   <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
   <script type="text/babel">
     const rootElement = document.getElementById('root')
+    // 1. using react to create elems
+    // const element = React.createElement('div', {
+    //   className: 'container',
+    //   children: 'Hola mundo'
+    // })
+
+    // 2. using jsx - html like syntax
     const element = <div className="container">Hello World</div>
     ReactDOM.render(element, rootElement)
   </script>
