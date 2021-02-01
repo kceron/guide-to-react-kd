@@ -5,10 +5,16 @@
   <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
   <script type="text/babel">
     const rootElement = document.getElementById('root')
-    const children = 'Hello World'
+    const children = 'Hello Mundo'
     const className = 'container'
     const props = {children, className}
-    const element = <div {...props} />
+    const element = <div id="app-root" {...props} className="not-container" />
+    //   other ways to write like 11
+    // const element = <div className={className} children={children}>
     ReactDOM.render(element, rootElement)
   </script>
 </body>
+
+<!-- when we add additional props like id='app-root', we are going to get the extends helper which is basically object.assign, and then babel is going to extend the props that we provided with the props that we're spreading, so we get a single combined object for the second argument of the react.createelement call, so spread props in jsx will be combined with any other props provided to that elem in a declarative way -->
+
+<!-- because of the way that object.assign works if we wanted to overwrite one of the properties of our props obj like className="not-container", we can do so by providing it after we spread those props, so whatever comes last is the winner in the event of a conflict  -->
