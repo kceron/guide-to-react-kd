@@ -10,10 +10,11 @@
     function SayHello({firstName, lastName}) {
       return (
         <div>
-          Hello {firstName} {lastName}!
+          Holaaa {firstName} {lastName}!!!
         </div>
       )
     }
+
     SayHello.propTypes = {
       firstName: PropTypes.string.isRequired,
       lastName: PropTypes.string.isRequired,
@@ -24,3 +25,19 @@
     ReactDOM.render(element, rootElement)
   </script>
 </body>
+
+<!-- the propTypes package allows you to add runtime validation of the props that are passed to your components, propTypes feature allows you to validate the types of props that are being passed to your components when theyre rendered -->
+
+<!-- propTypes by default are not required so we can add .isRequired -->
+
+<!-- *** in production proptypes are not applied, we can get a babel plugin that will remove the propTypes from our source code for production, its called babel-plugin-transform-react-remove-prop-types, this can be installed and used in our production build  -->
+
+<!-- before adding prop-type unpkg: 
+//   const PropTypes = {
+  //   string(props, propName, componentName) {
+  //     if (typeof props[propName] !== 'string') {
+  //       return new Error(`Hey, the component ${componentName} needs the prop ${propName} to be a string, but you passed a ${typeof props[propName]}`,
+  //       )
+  //     }
+  //   },
+  // } -->
