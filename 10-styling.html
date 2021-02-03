@@ -25,7 +25,7 @@
     }
   </style>
   <script type="text/babel">
-    function Box({style, size, className = '', ...rest}) {
+    function Box({className = '', style, size, ...rest}) {
       const sizeClassName = size ? `box--${size}` : ''
       return (
         <div
@@ -54,3 +54,8 @@
     ReactDOM.render(element, document.getElementById('root'))
   </script>
 </body>
+
+<!-- we can separate our components from the classname used to style them (29). 
+Our resusable box component that merges the className, the styke prop forwards along all of the props like the childrem prop that we're passing for each one. And accepts a special size prop so that you can size the box appropriately. -->
+
+<!-- in our function box: accepts a className, combines that with the className necesary to make a box, accepts a style prop, and combines that with the style necessary to make a box with a font style of italic. Also accepting a size prop to separate the code for the users of the Box component from the code necessary to make a box of that specified style. Then we take rest of the props, and spread that on the underlying div so that users can provide additional props like ID is root as well as the children prop for the contents of the box.  -->
