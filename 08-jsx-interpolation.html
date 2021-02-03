@@ -4,6 +4,7 @@
   <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
   <script type="text/babel">
+
     function CharacterCount({text}) {
       return (
         <div>
@@ -24,3 +25,5 @@
     ReactDOM.render(element, document.getElementById('root'))
   </script>
 </body>
+
+<!-- once we are in a curly brace inside jsx like in line 11, we can only do limited js. We can only do exressions. Not for loops/if statements. It has to be an expression that evaluates some value. So a string or a ternary (line 11/12) are expressions and are allowed within the curly braces. -->
