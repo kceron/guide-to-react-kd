@@ -29,3 +29,11 @@
     ReactDOM.render(<Greeting />, document.getElementById('root'))
   </script>
 </body>
+
+<!-- The Effect Hook lets you perform side effects in function components -->
+
+<!-- In this case useEffect function will be called every time the greeting component is rendered.
+
+We can see whats in local storage in the devtools, application, local storage. -->
+
+<!-- in review, we first used react.useEffect(12) to set the name value in localStorage to the name value in our state in memory. then, to have our state in memory be initialized from localStorage, we used window.localStorage.getItem(name), and if there is nothing in there, we'll initialize it to an empty string as a default. then, to make sure that the input is showing the same value for the name as our name in memory, we specified a value prop, changing this input from an uncontrolled to a controlled input  -->
