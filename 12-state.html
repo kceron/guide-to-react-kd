@@ -6,7 +6,9 @@
   <script type="text/babel">
     function Greeting() {
       const [name, setName] = React.useState('')
+      const [name2, setName2] = React.useState('')
       const handleChange = event => setName(event.target.value)
+      const handleChange2 = event => setName2(event.target.value)
       return (
         <div>
           <form>
@@ -14,6 +16,12 @@
             <input onChange={handleChange} id="name" />
           </form>
           {name ? <strong>Hello {name}</strong> : 'Please type your name'}
+
+          <form>
+            <label htmlFor="name2">Name: </label>
+            <input onChange={handleChange2} id="name2" />
+          </form>
+          {name ? <strong>Hello {name2}</strong> : 'Please type your name'}
         </div>
       )
     }
@@ -21,3 +29,7 @@
     ReactDOM.render(<Greeting />, document.getElementById('root'))
   </script>
 </body>
+
+<!-- you can tell if a label is properly associated to the input by clicking the label, which should focus the input, if it doesnt then its not properly labeled -->
+
+<!-- to use state in a react function component, you use the useState hook from react. the useState hook accepts the initial value, so when this greeting component is initially rendered, that is going to be the value of our name variable. any time we call the second elem of the array(setName), our updater function will trigger a re-render of this entire function component. when react useState is called again, it will ignore the initial value and instead give us the current value of that name. and because react keeps track of the order in which these are called, we could add a second one. and these states are managed independently of one another bc react keeps track of the order in which these are going to be called, allowing you to use as much as you need for your component. and the values in there can be anything, you can make it a boolean,num,obj,array whatever makes sense for the state that youre trying to manage -->
