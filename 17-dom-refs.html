@@ -45,7 +45,7 @@
   <script type="text/babel">
     function Tilt({children}) {
       const tiltRef = React.useRef()
-
+      
       React.useEffect(() => {
         const tiltNode = tiltRef.current
         const vanillaTiltOptions = {
@@ -55,12 +55,15 @@
           'max-glare': 0.5,
         }
         VanillaTilt.init(tiltNode, vanillaTiltOptions)
+        // to combat memory leak we return this func, where we remove references of our DOM node from vanilla-tilt & remove all event handlers
         return () => {
+          // vanilla tilt adds this vanillaTilt property to our DOM node
           tiltNode.vanillaTilt.destroy()
         }
       }, [])
 
       return (
+        // to get access to this DOM node we pass this ref prop so we can initialize vt
         <div ref={tiltRef} className="tilt-root">
           <div className="tilt-child">{children}</div>
         </div>
@@ -91,3 +94,15 @@
     ReactDOM.render(<App />, document.getElementById('root'))
   </script>
 </body>
+
+<!-- vanilla-tilt takes a DOM node and makes it react to when the user mouses over that DOM node -->
+
+<!-- we included vanilla-tilt on the page so that we could do that. we also included some css to make our DOM nodes look fancy. 
+to get access to the DOM nodes so we can iniialize vanilla-tilt on it, we're using this ref prop on the div and we pass the thing that we get back from a react useRef call. 
+That ref has a current property that we can use to access the current value of this obj. 
+The reason that useRef is an obj that has a current property is so that we mutate the current property to whatever we want without triggering a re-render of our component. 
+we can use refs for more than just DOM nodes like we're using here. 
+we can use it for any value that we want to keep track of and mutate over time without triggering a re-render of our component.
+after a component has been mounted, our useEffect callback is going to be called. we get the tilt node from our tilt ref.current property
+we create some vanilla-tilt options and pass those to the initialization for our tilt node with vanilla-tilt 
+then we return a cleanup func so that we can remove all references of our DOM node in vanilla-tilt and remove all the event listeners that vanilla-tilt put on our DOM node  -->
