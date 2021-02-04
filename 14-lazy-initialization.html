@@ -8,7 +8,7 @@
       const [name, setName] = React.useState(
         () => window.localStorage.getItem('name') || '',
       )
-
+      console.log('rendered')
       React.useEffect(() => {
         window.localStorage.setItem('name', name)
       })
@@ -29,3 +29,5 @@
     ReactDOM.render(<Greeting />, document.getElementById('root'))
   </script>
 </body>
+
+<!-- the problem solved was that reading into localStorage is not necessary, except for the initial render of our component. we turned our initial value (line 9, arrow func) argument here into a function so that react will call it only when its necessary to get that initial value, which is only on the first render  -->
