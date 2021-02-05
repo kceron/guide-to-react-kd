@@ -122,3 +122,9 @@
     ReactDOM.render(<App />, document.getElementById('root'))
   </script>
 </body>
+
+
+<!-- React.useState(64), anytime you use a function callback for useState, that function is only going to be called when this component is initially rendered for the rest of the lifetime of that component  -->
+
+<!-- useEffect callbacks are only called if they have no dependencies listed or if they have a dependency list, and one of those dependencies changed. 
+here  we have a dependency list but its empty(84), therefore none of the dependencies has changed. because it doesnt have any dependencies, so this useEffect callback and its cleanup wont be called on updates -->
