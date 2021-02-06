@@ -35,3 +35,10 @@
     ReactDOM.render(<UsernameForm />, document.getElementById('root'))
   </script>
 </body>
+
+<!-- to make the button disabled if there is an error(28), disabled accepts a Boolean, if error is truthy then we'll pass a true value for disabled,
+and it there is no error or its falsy, then we'll pass a false value for disabled  -->
+
+<!-- with an onChange event in the input, we can get access to the value of the input,
+and update that in the state of your component, then changes to that value will trigger a re-render of your component.
+and that state value will be whatever the user's typed, allowing us to create this error message based on whether the username is lower case -->
