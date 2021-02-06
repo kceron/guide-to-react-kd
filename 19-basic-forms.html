@@ -5,17 +5,19 @@
   <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
   <script type="text/babel">
     function UsernameForm() {
-      function handleSubmit(event) {
-        event.preventDefault()
-        const username = event.target.elements.usernameInput.value
+      // const usernameInputRef = React.useRef()
+      function handleSubmit(e) {
+        e.preventDefault()
+        console.dir(e.target) 
+        // const username = usernameInputRef.current.value
+        const username = e.target.elements.usernameInput.value
         alert(`You entered: ${username}`)
       }
-
       return (
         <form onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="usernameInput">Username:</label>
-            <input id="usernameInput" type="text" />
+            <label htmlFor="usernameInput">Username: </label>
+            <input ref={usernameInputRef} id="usernameInput" type="text" />
           </div>
           <button type="submit">Submit</button>
         </form>
@@ -25,3 +27,33 @@
     ReactDOM.render(<UsernameForm />, document.getElementById('root'))
   </script>
 </body>
+
+<!-- 
+function UsernameForm() {
+  function handleSubmit(event) {
+    event.preventDefault()
+    const username = event.target.elements.usernameInput.value
+    alert(`You entered: ${username}`)
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="usernameInput">Username:</label>
+        <input id="usernameInput" type="text" />
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  )
+} -->
+
+<!-- to console.log the properties of event.target from our form, we use console.dir() which will log out the properties of that element -->
+
+<!-- any elements that have a name or an ID attribute will be attached by that name and ID to the element's property of the form node, and you can reference those by those names and IDs -->
+
+<!-- it's really important that any button you put inside of a form has a type,
+because implicitly, it will have a type of submit and thats not entirely clear.
+esp if you say cancel for the contents with no specified type that gives this button any submit type, 
+which is really confusing. 
+if you do want to have a cancel or reset button, then you want to specify the type is button (type="button"),
+if you dont specify the type, then the type will implicitly be submit, which would really confuse your users when they try to click cancel. -->
