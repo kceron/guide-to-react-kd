@@ -35,3 +35,12 @@
     ReactDOM.render(<UsernameForm />, document.getElementById('root'))
   </script>
 </body>
+
+<!-- if we ever need to make the input value something different from what the user is actually typing, we can do so by passing the value prop  -->
+
+<!-- here instead of displaying an error to the user when they dont use all lower case we just make that change for them. -->
+
+<!-- to control the input's value - as soon as we passed the 'value' prop on to an input,
+we're communicating to React that react no longer needs to manage the state of this input.
+now we are going to control that state and it should not change that value to anything other what we enter in here, which includes whatever the user's typing. 
+this is going to lowercase the string automatically as the user types  -->
