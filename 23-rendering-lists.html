@@ -29,7 +29,7 @@
           </button>
           <ul style={{listStyle: 'none', paddingLeft: 0}}>
             {items.map(item => (
-              <li>
+              <li key={item.id}>
                 <button onClick={() => removeItem(item)}>remove</button>{' '}
                 <label htmlFor={`${item.value}-input`}>{item.value}</label>{' '}
                 <input id={`${item.value}-input`} defaultValue={item.value} />
@@ -104,3 +104,6 @@
     // ReactDOM.render(<FocusDemo />, document.getElementById('root'))
   </script>
 </body>
+
+<!-- (32)anytime we render an arr of react elems, each one of those elems must have a key prop associated with it,
+so that react can track these appropriately over time. -->
