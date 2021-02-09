@@ -111,3 +111,13 @@
     ReactDOM.render(<App />, document.getElementById('root'))
   </script>
 </body>
+
+<!-- added some error handling(18) by creating some error state management,
+we added an error handler to our promise chain(30),
+so if we get some error data, then we're going to set that errorData,
+so that we can render something useful to the user indicating that there's been a problem.
+to avoid state bugs, we added a status state so that we could start out with 'idle',
+then when we start fetching the pokemon, we can set it to pending,
+when we get the pokemon, we can set it to resolved, 
+or if there's a failure then we set it to rejected, that helps us to avoid bugs -->
+
